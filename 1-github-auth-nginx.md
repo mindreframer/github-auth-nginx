@@ -19,7 +19,7 @@ or you can grab mine from here:
 These are omnibus builds of nginx + openresty created by @bakins. They have pretty much everything you need to get started to do some fancy lua application related stuff right in nginx.
 
 ## GitHub application
-Go to your github account and add a new application under your github org. (https://github.com/organizations/<orgname>/settings/applications/)
+Go to your github account and add a new application under your github org. (https://github.com/organizations/ORGNAME/settings/applications/)
 
 - Application Name is arbitrary.
 - Homepage URL is the url to the site you're protecting
