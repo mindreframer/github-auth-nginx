@@ -12,6 +12,12 @@ local https = require("ssl.https")
 local url = require("socket.url")
 local ltn12 = require("ltn12")
 
+local github_uri = "https://github.com"
+local github_api_uri = "https://api.github.com"
+
+ngx.log(ngx.INFO, block, "Using github_uri="..github_uri)
+ngx.log(ngx.INFO, block, "Using github_api_uri="..github_api_uri)
+
 local function pt(t)
   s = ""
   for k,v in pairs(t) do s=s.."("..k..","..v.."), " end
@@ -26,9 +32,9 @@ local oauth = {
     orgs_whitelist = {["MY_GITHUB_ORG"]=true},
 
     scope = "repo,user,user:email",
-    authorize_base_url = "https://github.com/login/oauth/authorize",
-    access_token_url = "https://github.com/login/oauth/access_token",
-    user_orgs_url = "https://api.github.com/user/orgs",
+    authorize_base_url = github_uri.."/login/oauth/authorize",
+    access_token_url = github_uri.."/login/oauth/access_token",
+    user_orgs_url = github_api_uri.."/user/orgs",
 }
 
 oauth.authorize_url = oauth.authorize_base_url.."?client_id="..oauth.app_id.."&scope="..oauth.scope
